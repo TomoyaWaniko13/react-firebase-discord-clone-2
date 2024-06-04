@@ -8,7 +8,7 @@ const Chat = () => {
       <div>
         <ChatHeader />
       </div>
-      <div>
+      <div className={'h-screen'}>
         <ChatMessage />
       </div>
       <div>

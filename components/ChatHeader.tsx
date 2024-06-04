@@ -1,5 +1,5 @@
 const ChatHeader = () => {
-  return <>chat header is here</>;
+  return <div className={'bg-gray-950 p-2'}>#text</div>;
 };
 
 export default ChatHeader;
