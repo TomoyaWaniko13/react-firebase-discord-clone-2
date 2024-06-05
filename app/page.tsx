@@ -1,13 +1,13 @@
-import Sidebar from '@/components/Sidebar';
-import Chat from '@/components/Chat';
+import Sidebar from '@/src/components/Sidebar';
+import Chat from '@/src/components/Chat';
 
 export default function Home() {
   return (
     <div className={'flex flex-row text-white'}>
       <Sidebar />
-      <div className={'w-screen'}>
+      <main className={'w-screen'}>
         <Chat />
-      </div>
+      </main>
     </div>
   );
 }
