@@ -9,7 +9,6 @@ import Login from '@/src/components/Login/login';
 
 export default function Home() {
   const user = useAppSelector((state) => state.user.user);
-  console.log(user);
 
   const dispatch = useAppDispatch();
 
