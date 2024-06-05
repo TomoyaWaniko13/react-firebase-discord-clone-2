@@ -20,7 +20,7 @@ const userSlice = createSlice({
     },
   },
 });
-console.log(userSlice);
+
 export const { login, logout } = userSlice.actions;
 
 const userReducer = userSlice.reducer;

@@ -1,6 +1,6 @@
-import ChatMessage from '@/src/components/ChatMessage';
-import ChatInput from '@/src/components/ChatInput';
-import ChatHeader from '@/src/components/ChatHeader';
+import ChatMessage from '@/src/components/Chat/ChatMessage';
+import ChatInput from '@/src/components/Chat/ChatInput';
+import ChatHeader from '@/src/components/Chat/ChatHeader';
 
 const Chat = () => {
   return (

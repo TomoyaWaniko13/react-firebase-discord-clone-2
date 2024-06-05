@@ -1,5 +1,5 @@
-import LeftSidebar from '@/src/components/LeftSidebar';
-import RightSidebar from '@/src/components/RightSidebar';
+import LeftSidebar from '@/src/components/Sidebar/LeftSidebar';
+import RightSidebar from '@/src/components/Sidebar/RightSidebar';
 
 const Sidebar = () => {
   return (
