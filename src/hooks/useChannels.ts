@@ -1,4 +1,3 @@
-// src/hooks/useChannels.ts
 import { useState, useEffect } from 'react';
 import { collection, DocumentData, onSnapshot, query } from '@firebase/firestore';
 import { db } from '@/lib/firebase';

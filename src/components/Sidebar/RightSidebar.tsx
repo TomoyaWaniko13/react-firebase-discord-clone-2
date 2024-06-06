@@ -1,6 +1,9 @@
 import { useAppSelector } from '@/src/store/hooks';
-import { DocumentData } from '@firebase/firestore';
+import { addDoc, collection, DocumentData } from '@firebase/firestore';
 import useChannels from '@/src/hooks/useChannels';
+import { Button } from '@/components/ui/button';
+import { db } from '@/lib/firebase';
+import SidebarChannel from '@/src/components/Sidebar/SidebarChannel';
 
 interface Channel {
   id: string;
@@ -11,15 +14,24 @@ const RightSidebar = () => {
   const channels = useChannels();
   const user = useAppSelector((state) => state.user.user);
 
+  const addChannel = async () => {
+    const channelName: string | null = prompt('create new channel');
+    if (channelName) {
+      const docRef = await addDoc(collection(db, 'channels'), {
+        channelName: channelName,
+      });
+    }
+  };
+
   return (
     <div className={'h-screen bg-gray-800 flex flex-col justify-between gap-3 p-4'}>
-      <div>
+      <div className={'flex flex-col gap-3'}>
         {channels.map((channel) => (
-          <button key={channel.channel.id} className={'flex gap-2 font-light'}>
-            <span>#</span>
-            <span>{channel.channel.channelName}</span>
-          </button>
+          <SidebarChannel key={channel.channel.id} id={channel.channel.id} channel={channel} />
         ))}
+        <Button size={'sm'} onClick={() => addChannel()}>
+          add
+        </Button>
       </div>
       <footer className={'flex flex-col items-center gap-3 text-center mx-0'}>
         <img src={user?.photo} alt='user photo' className={'rounded'} width={50} />

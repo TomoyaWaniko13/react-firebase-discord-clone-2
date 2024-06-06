@@ -1,8 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
 import userReducer from '@/src/store/slices/userSlice';
+import channelReducer from '@/src/store/slices/channelSlice';
 
 export const store = configureStore({
-  reducer: { user: userReducer },
+  reducer: { user: userReducer, channel: channelReducer },
 });
 
 // https://redux-toolkit.js.org/tutorials/typescript
