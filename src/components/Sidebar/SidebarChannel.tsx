@@ -12,8 +12,7 @@ const SidebarChannel = ({ id, channel }: Props) => {
 
   return (
     <button
-      key={channel.channel.id}
-      className={'flex gap-2 font-light'}
+      className={'flex gap-2 text-sm'}
       onClick={() => dispatch(setChannelInfo({ channelId: id, channelName: channel.channel.channelName }))}
     >
       <span>#</span>

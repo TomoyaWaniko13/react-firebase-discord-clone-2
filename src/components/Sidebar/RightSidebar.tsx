@@ -24,10 +24,10 @@ const RightSidebar = () => {
   };
 
   return (
-    <div className={'h-screen bg-gray-800 flex flex-col justify-between gap-3 p-4'}>
+    <div className={'h-screen bg-gray-800 flex flex-col justify-between gap-3 p-3'}>
       <div className={'flex flex-col gap-3'}>
         {channels.map((channel) => (
-          <SidebarChannel key={channel.channel.id} id={channel.channel.id} channel={channel} />
+          <SidebarChannel key={channel.id} id={channel.id} channel={channel} />
         ))}
         <Button size={'sm'} onClick={() => addChannel()}>
           add
