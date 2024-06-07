@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { useAppSelector } from '@/src/store/hooks';
-import { addDoc, collection } from '@firebase/firestore';
+import { addDoc, collection, serverTimestamp } from '@firebase/firestore';
 import { db } from '@/lib/firebase';
-import { serverTimestamp } from '@firebase/database';
 
 const ChatInput = () => {
   const [inputText, setInputText] = useState<string>('');
@@ -29,13 +28,25 @@ const ChatInput = () => {
   return (
     <form className={'bg-gray-950 p-4'} onSubmit={sendMessage}>
       <div className={'flex font-extralight'}>
-        <input
-          type='text'
-          className={'bg-transparent w-full outline-none'}
-          placeholder={'Message #text'}
-          value={inputText}
-          onChange={(e) => setInputText(e.target.value)}
-        />
+        {channelId ? (
+          <input
+            type='text'
+            className={'bg-transparent w-full outline-none'}
+            placeholder={`Message #${channelName}`}
+            value={inputText}
+            onChange={(e) => setInputText(e.target.value)}
+          />
+        ) : (
+          <input
+            disabled={true}
+            type='text'
+            className={'bg-transparent w-full outline-none'}
+            placeholder={'please choose channel'}
+            value={inputText}
+            onChange={(e) => setInputText(e.target.value)}
+          />
+        )}
+
         <button type={'submit'} className={'bg-white rounded text-black p-1 font-extralight'}>
           send
         </button>

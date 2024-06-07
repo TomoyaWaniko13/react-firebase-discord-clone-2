@@ -4,6 +4,7 @@ import useChannels from '@/src/hooks/useChannels';
 import { Button } from '@/components/ui/button';
 import { db } from '@/lib/firebase';
 import SidebarChannel from '@/src/components/Sidebar/SidebarChannel';
+import Image from 'next/image';
 
 interface Channel {
   id: string;
@@ -33,8 +34,9 @@ const RightSidebar = () => {
           add
         </Button>
       </div>
+
       <footer className={'flex flex-col items-center gap-3 text-center mx-0'}>
-        <img src={user?.photo} alt='user photo' className={'rounded'} width={50} />
+        <Image src={user?.photo} alt={'user photo'} width={50} height={50} />
         <span className={'text-sm font-extralight'}>{user?.displayName}</span>
       </footer>
     </div>
